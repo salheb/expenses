@@ -16,7 +16,10 @@
 			<groupId>com.julio</groupId>
 			<artifactId>usecases</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>com.julio</groupId>
+			<artifactId>entities</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>

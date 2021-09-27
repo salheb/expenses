@@ -17,11 +17,12 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<!--<module>rest</module>-->
+		<module>rest</module>
 		<module>usecases</module>
 		<module>db</module>
 		<module>entities</module>
-		<!-- <module>configuration</module>-->
+		<module>rest</module>
+		<module>configuration</module>
 	</modules>
 
 	<dependencyManagement>
@@ -36,11 +37,11 @@
 				<artifactId>db</artifactId>
 				<version>1.0-SNAPSHOT</version>
 			</dependency>
-			<!--<dependency>
+			<dependency>
 				<groupId>com.julio</groupId>
 				<artifactId>rest</artifactId>
 				<version>1.0-SNAPSHOT</version>
-			</dependency>-->
+			</dependency>
 
 			<dependency>
 				<groupId>org.hibernate</groupId>

@@ -1,6 +1,6 @@
 package com.julio.expensesapp.usecases.expense;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.julio.expensesapp.entities.Expense;
 import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
@@ -13,8 +13,8 @@ public class GetAllExpensesUseCase {
         this.adapter = adapter;
     }
 
-    public Collection<Expense> get(){
-        return adapter.getAllExpenses();
+    public List<Expense> get(){
+        return adapter.findAll();
     }
     
 }

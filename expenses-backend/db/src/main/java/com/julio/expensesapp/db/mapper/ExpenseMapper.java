@@ -1,7 +1,7 @@
 package com.julio.expensesapp.db.mapper;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import com.julio.expensesapp.db.model.ExpenseModel;
 import com.julio.expensesapp.entities.Expense;
@@ -14,9 +14,10 @@ public class ExpenseMapper {
         }
 
         Expense expense = new Expense();
+
         expense.setId(model.getId());
-        expense.setUuid(model.getUuid());
-        expense.setBeWarned(model.getBeWarned());
+        expense.setUUID(model.getUUID());
+        expense.setBeWarned(model.isBeWarned());
         expense.setDate(model.getDate());
         expense.setExpenseDescription(model.getExpenseDescription());
         expense.setExpenseType(model.getExpenseType());
@@ -27,24 +28,14 @@ public class ExpenseMapper {
         return expense;
     }
     
-    public static Collection<Expense> toEntity(Collection<ExpenseModel> model){
+    public static List<Expense> toEntity(List<ExpenseModel> model){
         if (model == null){
             return null;
         }
-        
-        Collection<Expense> expenseList = new ArrayList();
-        for (ExpenseModel tempExpense : model){
-            Expense expense = new Expense();
-            expense.setId(tempExpense.getId());
-            expense.setUuid(tempExpense.getUuid());
-            expense.setBeWarned(tempExpense.getBeWarned());
-            expense.setDate(tempExpense.getDate());
-            expense.setExpenseDescription(tempExpense.getExpenseDescription());
-            expense.setExpenseType(tempExpense.getExpenseType());
-            expense.setRecurrence(tempExpense.getRecurrence());
-            expense.setValue(tempExpense.getValue());
 
-            expenseList.add(expense);
+        List<Expense> expenseList = new ArrayList();
+        for (ExpenseModel tempExpense : model){
+            expenseList.add(toEntity(tempExpense));
         }
         
         return expenseList;

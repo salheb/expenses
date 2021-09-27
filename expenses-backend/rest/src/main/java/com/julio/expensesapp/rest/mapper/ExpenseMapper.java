@@ -1,7 +1,10 @@
-package com.julio.expenseapp.rest.mapper;
+package com.julio.expensesapp.rest.mapper;
 
-import com.julio.expenseapp.entities.Expense;
-import com.julio.expenseapp.rest.dto.ExpenseDto;
+import com.julio.expensesapp.entities.Expense;
+import com.julio.expensesapp.rest.dto.ExpenseDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ExpenseMapper {
 
@@ -12,7 +15,29 @@ public class ExpenseMapper {
 
         ExpenseDto expenseDto = new ExpenseDto();
         expenseDto.setId(entity.getId());
-        expenseDto.getUuid(entity.setUuid());
-        
+        expenseDto.setUuid(entity.getUUID());
+        expenseDto.setExpenseType(entity.getExpenseType());
+        expenseDto.setExpenseDescription(entity.getExpenseDescription());
+        expenseDto.setDate(entity.getDate());
+        expenseDto.setBeWarned(entity.isBeWarned());
+        expenseDto.setValue(entity.getValue());
+        expenseDto.setRecurrence(entity.getRecurrence());
+
+        return expenseDto;
     }
+
+    public static List<ExpenseDto> toDto(List<Expense> entity){
+        if (entity == null){
+            return null;
+        }
+
+        List<ExpenseDto> expenseList = new ArrayList<>();
+
+        for (Expense tempExpense : entity){
+            expenseList.add(toDto(tempExpense));
+        }
+
+        return expenseList;
+    }
+
 }
