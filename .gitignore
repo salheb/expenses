@@ -24,3 +24,8 @@ hs_err_pid*
 /expenses-backend/.vscode/
 
 .DS_Store
+/expenses-backend/.devcontainer/
+/expenses-backend/.idea/
+/expenses-backend/.jpb/
+/expenses-backend/.settings/
+/expenses-backend/configuration/src/main/resources/
