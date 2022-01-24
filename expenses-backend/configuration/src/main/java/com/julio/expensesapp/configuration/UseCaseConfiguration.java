@@ -1,10 +1,11 @@
 package com.julio.expensesapp.configuration;
 
-import com.julio.expensesapp.db.ExpenseAdapterImpl;
+import com.julio.expensesapp.adapter.db.ExpenseAdapterImpl;
 import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
 import com.julio.expensesapp.usecases.expense.FindExpenseByDateBetweenUseCase;
 import com.julio.expensesapp.usecases.expense.FindExpenseByDateUseCase;
 import com.julio.expensesapp.usecases.expense.FindExpenseByIdUseCase;
+import com.julio.expensesapp.usecases.expense.SaveExpenseUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,5 +32,8 @@ public class UseCaseConfiguration {
         return new ExpenseAdapterImpl();
     }
 
-    
+    @Bean
+    public SaveExpenseUseCase saveExpenseUseCase(ExpenseAdapter expenseAdapter){
+        return new SaveExpenseUseCase(expenseAdapter);
+    }
 }

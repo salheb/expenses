@@ -17,5 +17,9 @@ public interface ExpenseAdapter {
     List<Expense> findExpenseByDate(LocalDateTime date);
 
     List<Expense> findExpenseByDateBetween(LocalDateTime dateFrom, LocalDateTime dateTo);
+
+    Expense save(Expense expense);
+
+    void delete(UUID uuid);
     
 }
