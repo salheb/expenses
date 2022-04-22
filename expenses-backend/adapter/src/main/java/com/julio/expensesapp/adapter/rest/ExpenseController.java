@@ -5,7 +5,6 @@ import com.julio.expensesapp.adapter.rest.mapper.ExpenseMapper;
 
 import com.julio.expensesapp.entities.Expense;
 import com.julio.expensesapp.usecases.expense.FindExpenseByDateBetweenUseCase;
-import com.julio.expensesapp.usecases.expense.FindExpenseByIdUseCase;
 import com.julio.expensesapp.usecases.expense.FindExpenseByUUIDUseCase;
 import com.julio.expensesapp.usecases.expense.SaveExpenseUseCase;
 import com.julio.expensesapp.usecases.expense.DeleteExpenseUseCase;
@@ -15,12 +14,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import io.swagger.annotations.Api;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Api(tags = "Expenses")
 @RestController
-@RequestMapping("")
+@RequestMapping("/expenses")
 public class ExpenseController {
 
     @Autowired
@@ -35,8 +36,8 @@ public class ExpenseController {
     @Autowired
     private DeleteExpenseUseCase deleteExpenseUseCase;
 
-    // TODO add swagger/openapi support
-    @GetMapping(value = {"/expenses/"})
+
+    @GetMapping(value = {"/"})
     public ResponseEntity<List<ExpenseDto>> find(@RequestParam(required = false) String dateFrom,
                                                       @RequestParam(required = false) String dateTo){
         List<Expense> expenses = findExpenseByDateBetween.find(dateFrom, dateTo);
@@ -44,7 +45,7 @@ public class ExpenseController {
         return new ResponseEntity<>(ExpenseMapper.toDto(expenses), HttpStatus.OK);
     }
 
-    @GetMapping(value = {"/expenses/{id}"})
+    @GetMapping(value = {"/{id}"})
     public ResponseEntity<List<ExpenseDto>> find(@PathVariable UUID id){
         Expense expense = findExpenseByUUIDUseCase.find(id);
 
@@ -61,7 +62,7 @@ public class ExpenseController {
         return response;
     }
 
-    @PostMapping(path = "/expenses", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public ExpenseDto add(@RequestBody List<ExpenseDto> expenseDto)
@@ -72,7 +73,7 @@ public class ExpenseController {
         return ExpenseMapper.toDto(expense);
     }
 
-    @PutMapping(path = "/expenses", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public ExpenseDto update(@RequestBody List<ExpenseDto> expenseDto){
@@ -82,7 +83,7 @@ public class ExpenseController {
         return ExpenseMapper.toDto(expense);
     }
 
-    @DeleteMapping(path = "/expenses/{id}")
+    @DeleteMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public void delete(@RequestBody UUID uuid){

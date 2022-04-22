@@ -4,8 +4,9 @@ import com.julio.expensesapp.adapter.db.ExpenseAdapterImpl;
 import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
 import com.julio.expensesapp.usecases.expense.FindExpenseByDateBetweenUseCase;
 import com.julio.expensesapp.usecases.expense.FindExpenseByDateUseCase;
-import com.julio.expensesapp.usecases.expense.FindExpenseByIdUseCase;
+import com.julio.expensesapp.usecases.expense.FindExpenseByUUIDUseCase;
 import com.julio.expensesapp.usecases.expense.SaveExpenseUseCase;
+import com.julio.expensesapp.usecases.expense.DeleteExpenseUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,8 +24,8 @@ public class UseCaseConfiguration {
     }
 
     @Bean
-    public FindExpenseByIdUseCase findExpenseByIdUseCase(ExpenseAdapter expenseAdapter){
-        return new FindExpenseByIdUseCase(expenseAdapter);
+    public FindExpenseByUUIDUseCase findExpenseByIdUseCase(ExpenseAdapter expenseAdapter){
+        return new FindExpenseByUUIDUseCase(expenseAdapter);
     }
 
     @Bean
@@ -35,5 +36,10 @@ public class UseCaseConfiguration {
     @Bean
     public SaveExpenseUseCase saveExpenseUseCase(ExpenseAdapter expenseAdapter){
         return new SaveExpenseUseCase(expenseAdapter);
+    }
+
+    @Bean
+    public DeleteExpenseUseCase deleteExpenseUseCase(ExpenseAdapter expenseAdapter){
+        return new DeleteExpenseUseCase(expenseAdapter);
     }
 }

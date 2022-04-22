@@ -3,6 +3,7 @@ package com.julio.expensesapp.entities;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 import lombok.Data;
 
 @Data

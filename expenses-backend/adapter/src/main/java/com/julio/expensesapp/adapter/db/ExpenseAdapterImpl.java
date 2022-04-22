@@ -13,7 +13,6 @@ import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
 
 public class ExpenseAdapterImpl implements ExpenseAdapter {
 
-
     @Autowired
     private ExpenseRepository expenseRepository;
 

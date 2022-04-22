@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
- 
+
 @Table(name = "expense")
 @Entity
 @Data
