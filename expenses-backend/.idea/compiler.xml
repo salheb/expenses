@@ -8,22 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="adapter" />
-        <module name="usecases" />
-        <module name="entities" />
-        <module name="configuration" />
+        <module name="application" />
+        <module name="use-case" />
+        <module name="domain" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="db" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="adapter" options="-parameters" />
-      <module name="configuration" options="-parameters" />
-      <module name="db" options="-parameters" />
-      <module name="entities" options="-parameters" />
-      <module name="usecases" options="-parameters" />
+      <module name="adapter" options="" />
+      <module name="application" options="" />
+      <module name="domain" options="" />
+      <module name="use-case" options="" />
     </option>
   </component>
 </project>
