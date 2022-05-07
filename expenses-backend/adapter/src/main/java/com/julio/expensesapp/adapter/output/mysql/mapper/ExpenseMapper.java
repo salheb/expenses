@@ -13,17 +13,16 @@ public class ExpenseMapper {
             return null;
         }
 
-        Expense expense = new Expense();
-
-        expense.setId(model.getId());
-        expense.setUUID(model.getUUID());
-        expense.setBeWarned(model.isBeWarned());
-        expense.setDate(model.getDate());
-        expense.setExpenseDescription(model.getExpenseDescription());
-        expense.setExpenseType(model.getExpenseType());
-        expense.setRecurrence(model.getRecurrence());
-        expense.setValue(model.getValue());
-        
+        Expense expense = Expense.builder()
+                .id(model.getId())
+                .expenseDescription(model.getExpenseDescription())
+                .expenseType(model.getExpenseType())
+                .beWarned(model.isBeWarned())
+                .date(model.getDate())
+                .recurrence(model.getRecurrence())
+                .uuid(model.getUUID())
+                .value(model.getValue())
+                .build();
 
         return expense;
     }
@@ -47,7 +46,7 @@ public class ExpenseMapper {
 
         ExpenseEntity expenseEntity = new ExpenseEntity();
         expenseEntity.setId(entity.getId());
-        expenseEntity.setUUID(entity.getUUID());
+        expenseEntity.setUUID(entity.getUuid());
         expenseEntity.setExpenseType(entity.getExpenseType());
         expenseEntity.setExpenseDescription(entity.getExpenseDescription());
         expenseEntity.setBeWarned(entity.isBeWarned());

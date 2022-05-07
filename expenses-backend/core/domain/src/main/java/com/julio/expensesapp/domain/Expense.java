@@ -21,4 +21,24 @@ public class Expense {
     private final LocalDateTime date;
     private final int recurrence;
     private final boolean beWarned;
+
+    @Builder
+    Expense(long id,
+            UUID uuid,
+            String expenseDescription,
+            int expenseType,
+            BigDecimal value,
+            LocalDateTime date,
+            int recurrence,
+            boolean beWarned){
+
+        this.id = id;
+        this.uuid = uuid;
+        this.expenseDescription = expenseDescription;
+        this.expenseType = expenseType;
+        this.value = value;
+        this.date = date;
+        this.recurrence = recurrence;
+        this.beWarned = beWarned;
+    }
 }

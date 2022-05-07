@@ -12,13 +12,13 @@ public class ExpenseOccurrenceMapper {
             return null;
         }
 
-        ExpenseOccurrence occurrence = new ExpenseOccurrence();
-
-        occurrence.setId(model.getId());
-        occurrence.setExpenseId(model.getExpenseId());
-        occurrence.setDateReal(model.getDateReal());
-        occurrence.setUUID(model.getUUID());
-        occurrence.setValueReal(model.getValueReal());
+        ExpenseOccurrence occurrence = ExpenseOccurrence.builder()
+                                        .id(model.getId())
+                                        .uuid(model.getUUID())
+                                        .expenseId(model.getExpenseId())
+                                        .dateReal(model.getDateReal())
+                                        .valueReal(model.getValueReal())
+                                        .build();
 
         return occurrence;
     }
