@@ -4,10 +4,10 @@ import com.julio.expensesapp.adapter.input.rest.dto.ExpenseDto;
 import com.julio.expensesapp.adapter.input.rest.mapper.ExpenseMapper;
 
 import com.julio.expensesapp.domain.Expense;
-import com.julio.expensesapp.usecases.expense.FindExpenseByDateBetweenUseCase;
-import com.julio.expensesapp.usecases.expense.FindExpenseByUUIDUseCase;
-import com.julio.expensesapp.usecases.expense.SaveExpenseUseCase;
-import com.julio.expensesapp.usecases.expense.DeleteExpenseUseCase;
+import com.julio.expensesapp.usecase.expense.FindExpenseByDateBetweenUseCase;
+import com.julio.expensesapp.usecase.expense.FindExpenseByUUIDUseCase;
+import com.julio.expensesapp.usecase.expense.SaveExpenseUseCase;
+import com.julio.expensesapp.usecase.expense.DeleteExpenseUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

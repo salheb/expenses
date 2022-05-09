@@ -9,12 +9,11 @@ import java.util.UUID;
 import com.julio.expensesapp.adapter.output.mysql.mapper.ExpenseMapper;
 import com.julio.expensesapp.adapter.output.mysql.model.ExpenseEntity;
 import com.julio.expensesapp.domain.Expense;
-import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
 
-public class ExpenseAdapterImpl implements ExpenseAdapter {
+public class ExpenseRepositoryImpl implements com.julio.expensesapp.usecase.port.ExpenseRepository {
 
     @Autowired
-    private ExpenseRepository expenseRepository;
+    private com.julio.expensesapp.adapter.output.mysql.ExpenseRepository expenseRepository;
 
     @Override
     public List<Expense> findAll(){

@@ -1,4 +1,4 @@
-package com.julio.expensesapp.usecases.adapter;
+package com.julio.expensesapp.usecase.port;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import com.julio.expensesapp.domain.Expense;
 
-public interface ExpenseAdapter {
+public interface ExpenseRepository {
 
     List<Expense> findAll();
 

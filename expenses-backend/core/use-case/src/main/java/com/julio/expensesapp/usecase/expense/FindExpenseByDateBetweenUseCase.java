@@ -1,20 +1,23 @@
-package com.julio.expensesapp.usecases.expense;
+package com.julio.expensesapp.usecase.expense;
 
 import com.julio.expensesapp.domain.Expense;
-import com.julio.expensesapp.usecases.adapter.ExpenseAdapter;
+import com.julio.expensesapp.usecase.port.ExpenseRepository;
+import jakarta.enterprise.context.ApplicationScoped;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.List;
 
+@Named
+@ApplicationScoped
 public class FindExpenseByDateBetweenUseCase {
 
-    private ExpenseAdapter adapter;
+    private final ExpenseRepository adapter;
 
-    public FindExpenseByDateBetweenUseCase(ExpenseAdapter adapter){
+    @Inject
+    FindExpenseByDateBetweenUseCase(final ExpenseRepository adapter){
         this.adapter = adapter;
     }
 

@@ -5,16 +5,16 @@ import com.julio.expensesapp.adapter.output.mysql.model.ExpenseOccurrenceModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.julio.expensesapp.domain.ExpenseOccurrence;
-import com.julio.expensesapp.usecases.adapter.ExpenseOccurrenceAdapter;
+import com.julio.expensesapp.usecase.port.ExpenseOccurrenceRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-public class ExpenseOccurrenceAdapterImpl implements ExpenseOccurrenceAdapter{
+public class ExpenseOccurrenceRepositoryImpl implements ExpenseOccurrenceRepository {
 
     @Autowired
-    private ExpenseOccurrenceRepository occurrenceRepository;
+    private com.julio.expensesapp.adapter.output.mysql.ExpenseOccurrenceRepository occurrenceRepository;
 
     @Override
     public List<ExpenseOccurrence> findOccurrenceByExpenseId(long expenseId){

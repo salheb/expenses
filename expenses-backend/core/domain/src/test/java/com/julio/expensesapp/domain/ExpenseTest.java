@@ -1,6 +1,7 @@
 package com.julio.expensesapp.domain;
 
-
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,31 +10,68 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class ExpenseTest {
-    private Expense expense;
-    private ExpenseOccurrence occurrence;
-
     @Test
-    void createNewExpenseTest(){
-        expense = Expense.builder()
+    void shouldReturnValuesWhenExpenseWasCreated(){
+        var now = LocalDateTime.now();
+        var expense = Expense.builder()
                 .id(1)
                 .uuid(UUID.randomUUID())
                 .expenseType(1)
                 .expenseDescription("Morning breakfast at Danny's")
                 .value(BigDecimal.valueOf(29.90))
-                .date(LocalDateTime.now())
+                .date(now)
                 .recurrence(0)
                 .beWarned(true)
                 .build();
+        assertThat(expense.getId()).isEqualTo(1);
+        assertThat(expense.getValue()).isEqualTo(BigDecimal.valueOf(29.90));
+        assertThat(expense.getDate()).isEqualTo(now);
+    }
 
-        occurrence = ExpenseOccurrence.builder()
-                .expenseId(expense.getId())
-                .valueReal(expense.getValue())
-                .dateReal(expense.getDate())
+    @Test
+    void shouldThrowInvalidExpenseException(){
+        var now = LocalDateTime.now();
+        var builder = Expense.builder()
                 .id(1)
                 .uuid(UUID.randomUUID())
-                .build();
+                .expenseType(1)
+                .expenseDescription(" ")
+                .value(BigDecimal.valueOf(29.90))
+                .date(now)
+                .recurrence(0)
+                .beWarned(true);
 
-        Assertions.assertNotNull(expense);
-        Assertions.assertNotNull(occurrence);
+        assertThatThrownBy(() -> builder.build()).hasMessage("Expense must have a description.");
+    }
+
+    @Test
+    void shouldThrowInvalidExpenseValueException(){
+        var now = LocalDateTime.now();
+        var builder = Expense.builder()
+                .id(1)
+                .uuid(UUID.randomUUID())
+                .expenseType(1)
+                .expenseDescription("A")
+                .value(BigDecimal.valueOf(0))
+                .date(now)
+                .recurrence(0)
+                .beWarned(true);
+
+        assertThatThrownBy(() -> builder.build()).hasMessage("Expense must have a value.");
+    }
+
+    @Test
+    void shouldThrowNullPointerException(){
+        var now = LocalDateTime.now();
+        var builder = Expense.builder()
+                .id(1)
+                .uuid(UUID.randomUUID())
+                .expenseType(1)
+                .expenseDescription("A")
+                .value(BigDecimal.valueOf(29.89))
+                .recurrence(0)
+                .beWarned(true);
+
+        assertThatThrownBy(() -> builder.build()).hasMessage("Expense Date can't be null.");
     }
 }
