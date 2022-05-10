@@ -34,6 +34,7 @@ The name of this project is inspired by Mansa Musa figure, that was a Mali king 
 
 
 ## Requirements
+TODO: below this must be updated, please do not consider this information.
 The application can be run locally or in a docker container, the requirements for each setup are listed below.
 
 
