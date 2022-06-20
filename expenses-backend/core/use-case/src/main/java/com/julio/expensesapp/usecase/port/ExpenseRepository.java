@@ -21,5 +21,7 @@ public interface ExpenseRepository {
     Expense save(Expense expense);
 
     void delete(UUID uuid);
+
+    boolean exists(UUID uuid);
     
 }

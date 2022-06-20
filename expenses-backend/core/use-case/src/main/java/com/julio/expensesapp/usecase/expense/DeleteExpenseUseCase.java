@@ -1,5 +1,6 @@
 package com.julio.expensesapp.usecase.expense;
 
+import com.julio.expensesapp.usecase.exception.ExpenseNotFoundException;
 import com.julio.expensesapp.usecase.port.ExpenseRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 
@@ -15,5 +16,10 @@ public class DeleteExpenseUseCase {
     @Inject
     DeleteExpenseUseCase(final ExpenseRepository repository){ this.repository = repository; }
 
-    public void delete(UUID uuid){ repository.delete(uuid); }
+    public void delete(UUID uuid){
+        if (repository.exists(uuid))
+            repository.delete(uuid);
+        else
+            throw new ExpenseNotFoundException("The expense record with unique id " + uuid + " does not exist.");
+    }
 }

@@ -10,12 +10,12 @@ import jakarta.inject.Named;
 
 @Named
 @ApplicationScoped
-public class findOccurrenceByUuidUseCase {
+public class FindOccurrenceByUuidUseCase {
 
     private final ExpenseOccurrenceRepository repository;
 
     @Inject
-    public findOccurrenceByUuidUseCase(final ExpenseOccurrenceRepository repository){
+    public FindOccurrenceByUuidUseCase(final ExpenseOccurrenceRepository repository){
         this.repository = repository;
     }
 
