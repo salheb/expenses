@@ -24,7 +24,7 @@ public class FindExpenseByUUIDUseCase {
         if (expense != null)
             return expense;
         else
-            new ExpenseNotFoundException("The expense record with unique id " + uuid + " does not exist.");
+            throw new ExpenseNotFoundException("The expense record with unique id " + uuid + " does not exist.");
     }
     
 }
