@@ -19,8 +19,8 @@ public class GetAllExpensesUseCase {
         this.repository = repository;
     }
 
-    public List<Expense> get(){
-        return repository.findAll();
+    public List<Expense> get(long userId){
+        return repository.findAll(userId);
     }
     
 }

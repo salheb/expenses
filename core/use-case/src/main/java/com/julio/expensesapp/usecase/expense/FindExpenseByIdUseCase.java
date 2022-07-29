@@ -1,6 +1,7 @@
 package com.julio.expensesapp.usecase.expense;
 
 import com.julio.expensesapp.domain.Expense;
+import com.julio.expensesapp.usecase.exception.ExpenseNotFoundException;
 import com.julio.expensesapp.usecase.port.ExpenseRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -18,7 +19,9 @@ public class FindExpenseByIdUseCase {
     }
 
     public Expense find(long id){
-        return repository.findExpenseById(id);
+        return repository.findExpenseById(id)
+                .orElseThrow(() -> new ExpenseNotFoundException("The expense record with unique id "
+                        + id + " does not exist."));
     }
     
     

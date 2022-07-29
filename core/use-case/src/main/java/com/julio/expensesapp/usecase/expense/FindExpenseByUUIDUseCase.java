@@ -1,7 +1,6 @@
 package com.julio.expensesapp.usecase.expense;
 
 import java.util.UUID;
-
 import com.julio.expensesapp.domain.Expense;
 import com.julio.expensesapp.usecase.exception.ExpenseNotFoundException;
 import com.julio.expensesapp.usecase.port.ExpenseRepository;
@@ -19,12 +18,10 @@ public class FindExpenseByUUIDUseCase {
         this.repository = repository;
     }
 
-    public Expense find(UUID uuid){
-        Expense expense = repository.findExpenseByUUID(uuid);
-        if (expense != null)
-            return expense;
-        else
-            throw new ExpenseNotFoundException("The expense record with unique id " + uuid + " does not exist.");
+    public Expense find(UUID uuid) throws ExpenseNotFoundException{
+        return repository.findExpenseByUUID(uuid)
+                .orElseThrow(() -> new ExpenseNotFoundException("The expense record with unique id "
+                                                        + uuid + " does not exist."));
     }
     
 }

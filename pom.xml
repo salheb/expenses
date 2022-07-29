@@ -37,8 +37,9 @@
 		<module>application</module>
 		<module>core/use-case</module>
 		<module>core/domain</module>
-		<module>adapter</module>
-	</modules>
+        <module>adapter/output/mysql-repository</module>
+		<module>adapter/input/spring-rest</module>
+    </modules>
 
 	<dependencies>
 		<dependency>

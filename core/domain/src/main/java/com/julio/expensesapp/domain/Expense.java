@@ -1,8 +1,8 @@
 package com.julio.expensesapp.domain;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Collection;
+import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -22,10 +22,11 @@ public class Expense {
 	private final String expenseDescription;
 	private final int expenseType;
     private final BigDecimal value;
-    private final LocalDateTime date;
+    private final ZonedDateTime date;
     private final int recurrence;
     private final boolean beWarned;
-    private final Collection<ExpenseOccurrence> occurrences;
+    private final List<ExpenseOccurrence> occurrences;
+    private final User user;
 
     @Builder
     Expense(long id,
@@ -33,16 +34,19 @@ public class Expense {
             String expenseDescription,
             int expenseType,
             BigDecimal value,
-            LocalDateTime date,
+            ZonedDateTime date,
             int recurrence,
             boolean beWarned,
-            Collection<ExpenseOccurrence> occurrences){
+            List<ExpenseOccurrence> occurrences,
+            User user){
+
 
         Objects.requireNonNull(date, "Expense Date can't be null.");
         if (value.doubleValue() <= 0)
             throw new InvalidExpenseValueException("Expense must have a value.");
         if (expenseDescription.isBlank())
             throw new InvalidExpenseException("Expense must have a description.");
+        if (user == null) throw new InvalidExpenseException("Expense user can't be identified.");
 
         this.id = id;
         this.uuid = uuid;
@@ -53,5 +57,6 @@ public class Expense {
         this.recurrence = recurrence;
         this.beWarned = beWarned;
         this.occurrences = occurrences;
+        this.user = user;
     }
 }

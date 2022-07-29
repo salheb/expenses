@@ -2,17 +2,18 @@ package com.julio.expensesapp.usecase.port;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.julio.expensesapp.domain.Expense;
 
 public interface ExpenseRepository {
 
-    List<Expense> findAll();
+    List<Expense> findAll(long userId);
 
-    Expense findExpenseById(long id);
+    Optional<Expense> findExpenseById(long id);
 
-    Expense findExpenseByUUID(UUID uuid);
+    Optional<Expense> findExpenseByUUID(UUID uuid);
 
     List<Expense> findExpenseByDate(ZonedDateTime date);
 
