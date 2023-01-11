@@ -91,11 +91,12 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.0.1</version>
                 <configuration>
                     <executable>true</executable>
                     <skip>false</skip>
                     <fork>true</fork>
-                    <mainClass>com.julio.expensesapp.Application</mainClass>
+                    <mainClass>com.julio.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>

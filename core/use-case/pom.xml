@@ -10,7 +10,7 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.julio.expensesapp</groupId>
+	<groupId>com.julio</groupId>
 	<artifactId>use-case</artifactId>
 	<name>Use-case</name>
  
@@ -36,6 +36,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.0.1</version>
 				<configuration>
 					<executable>true</executable>
 					<skip>true</skip>

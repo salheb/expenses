@@ -40,6 +40,7 @@ public class ExpenseController {
     @GetMapping(value = {"/"})
     public ResponseEntity<List<ExpenseDto>> find(@RequestParam(required = false) String dateFrom,
                                                  @RequestParam(required = false) String dateTo){
+
         List<Expense> expenses = findExpenseByDateBetween.find(dateFrom, dateTo);
 
         return new ResponseEntity<>(ExpenseControllerMapper.toDto(expenses), HttpStatus.OK);

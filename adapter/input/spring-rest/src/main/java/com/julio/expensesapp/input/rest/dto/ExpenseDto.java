@@ -3,7 +3,7 @@ package com.julio.expensesapp.input.rest.dto;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Data
@@ -13,7 +13,7 @@ public class ExpenseDto {
     private String expenseDescription;
     private int expenseType;
     private BigDecimal value;
-    private LocalDateTime date;
+    private ZonedDateTime date;
     private int recurrence;
     private boolean beWarned;
 }
