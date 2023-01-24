@@ -60,6 +60,7 @@ public class ExpenseMapper {
                         .valueReal(o.getValueReal())
                         .build())
                 .collect(Collectors.toList()):Collections.emptyList();
+
     }
 
     private UserEntity toUserEntity(final User user){
