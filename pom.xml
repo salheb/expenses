@@ -22,15 +22,18 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>19</java.version>
+		<java.version>17</java.version>
 		<lombok.version>1.18.24</lombok.version>
-		<javax.inject.version>1</javax.inject.version>
-		<jakarta.enterprise.cdi-api.version>3.0.1</jakarta.enterprise.cdi-api.version>
-		<spring-boot-starter-data-jpa.version>2.6.7</spring-boot-starter-data-jpa.version>
+		<jakarta.enterprise.cdi-api.version>4.0.1</jakarta.enterprise.cdi-api.version>
+		<spring-boot-starter-data-jpa.version>3.0.2</spring-boot-starter-data-jpa.version>
+		<spring-boot-maven-plugin.version>3.0.2</spring-boot-maven-plugin.version>
 		<junit-jupiter.version>5.6.0</junit-jupiter.version>
-		<spring-data-bom.version>2021.1.4</spring-data-bom.version>
+		<spring-data-bom.version>2022.0.1</spring-data-bom.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<assertj.version>3.18.1</assertj.version>
+		<assertj.version>3.24.2</assertj.version>
+		<jackson-databind.version>2.14.1</jackson-databind.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
 	<modules>
@@ -42,11 +45,6 @@
     </modules>
 
 	<dependencies>
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>${javax.inject.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>jakarta.enterprise</groupId>
 			<artifactId>jakarta.enterprise.cdi-api</artifactId>
@@ -84,6 +82,12 @@
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 				<version>${spring-boot-starter-data-jpa.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson-databind.version}</version>
+			</dependency>
+
 			<!-- Test dependencies -->
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>
@@ -111,4 +115,18 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-maven-plugin.version}</version>
+				<configuration>
+					<mainClass>com.julio.expensesapp.Application</mainClass>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -12,7 +12,7 @@ import java.util.List;
 @ApplicationScoped
 public class FindOccurrenceByExpenseIdUseCase {
 
-    private ExpenseOccurrenceRepository repository;
+    private final ExpenseOccurrenceRepository repository;
 
     @Inject
     FindOccurrenceByExpenseIdUseCase(final ExpenseOccurrenceRepository repository){

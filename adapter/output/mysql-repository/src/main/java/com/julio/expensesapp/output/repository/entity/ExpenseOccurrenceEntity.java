@@ -20,8 +20,8 @@ public class ExpenseOccurrenceEntity {
     private Long id;
 
     @Column
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private java.util.UUID UUID;
+    @GeneratedValue(generator = "UUID")
+    private java.util.UUID uuid;
 
     @Column
     private ZonedDateTime dateReal;

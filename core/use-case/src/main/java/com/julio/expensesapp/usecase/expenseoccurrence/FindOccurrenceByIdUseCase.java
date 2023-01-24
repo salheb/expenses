@@ -10,7 +10,7 @@ import jakarta.inject.Named;
 @ApplicationScoped
 public class FindOccurrenceByIdUseCase {
 
-    private ExpenseOccurrenceRepository repository;
+    private final ExpenseOccurrenceRepository repository;
 
     @Inject
     FindOccurrenceByIdUseCase(final ExpenseOccurrenceRepository repository){

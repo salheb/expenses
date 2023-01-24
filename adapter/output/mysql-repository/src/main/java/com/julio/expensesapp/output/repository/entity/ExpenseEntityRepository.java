@@ -4,7 +4,7 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.inject.Named;
+import jakarta.inject.Named;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
