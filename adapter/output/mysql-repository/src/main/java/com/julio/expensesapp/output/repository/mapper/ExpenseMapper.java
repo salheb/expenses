@@ -56,7 +56,7 @@ public class ExpenseMapper {
                 .map(o -> ExpenseOccurrence.builder()
                         .id(o.getId())
                         .dateReal(o.getDateReal())
-                        .uuid(o.getUUID())
+                        .uuid(o.getUuid())
                         .valueReal(o.getValueReal())
                         .build())
                 .collect(Collectors.toList()):Collections.emptyList();
