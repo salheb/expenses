@@ -51,4 +51,4 @@ TODO: implementing testing framework and code it
 TODO: detail how to access swagger
 
 ## Acknowledgements
-Este projeto foi baseado nos ensinamentos e repositórios do Biff [@gbzarelli]. Fica meu agradecimento a você Biff!
+Este projeto foi baseado nos ensinamentos e repositórios do [Biff](https://github.com/gbzarelli). Fica meu agradecimento a você Biff!
