@@ -1,4 +1,4 @@
-<h1 align="center"> Musa - Personal Expenses App</h1> <br>
+<h1 align="center"> Musa - Personal Expenses API</h1> <br>
 
 <p align="center">
   Open source project to control personal expenses and alert user about due dates.
@@ -31,3 +31,24 @@ The name of this project is inspired by Mansa Musa figure, that was a Mali king 
 * Register recurrent or one time expenses
 * Receive an alert when a bill must be paid soon (configurable)
 * See your bills and expenses organized by periods (monthly, weekly, daily) 
+
+## Requirements
+* Provide API operations for the above features - Done
+* Must have a clean architecture structure with SOLID principles - Done
+* Must have unit tests coverage above 80% - Doing
+* Must have opentelemetry implanted - Pending
+
+## Quick Start
+Follow the above steps to build the API:
+* git clone https://github.com/salheb/musa-expenses.git
+* cd musa-expenses
+* ./mvnw spring-boot:run
+
+## Testing
+TODO: implementing testing framework and code it
+
+## API
+TODO: detail how to access swagger
+
+## [Acknowledgements]
+Este projeto foi baseado nos ensinamentos e repositórios do Biff (@gbzarelli). Fica meu agradecimento a você Biff!
