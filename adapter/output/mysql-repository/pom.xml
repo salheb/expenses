@@ -13,7 +13,7 @@
     <artifactId>mysql-repository</artifactId>
 
     <properties>
-        <hibernate-core.version>6.1.6.Final</hibernate-core.version>
+        <hibernate-core.version>6.5.2.Final</hibernate-core.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
@@ -22,12 +22,12 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.32</version>
         </dependency>
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.0.0</version>
+            <version>3.2.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
-            <version>3.1.0</version>
+            <version>3.2.0</version>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
@@ -48,7 +48,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>3.0.1</version>
+            <version>3.3.1</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
@@ -58,7 +58,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>3.0.2</version>
+            <version>3.3.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
